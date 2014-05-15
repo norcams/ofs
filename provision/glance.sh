@@ -12,8 +12,12 @@ mysql -u root -p$dbpw -D glance -e "GRANT ALL ON glance.* TO 'glance'@'localhost
 mysql -u root -p$dbpw -D glance -e "FLUSH PRIVILEGES;"
 mysql -u root -p$dbpw -D glance -e "SHOW GRANTS FOR 'glance'@'%';"
 mysql -u root -p$dbpw -D glance -e "SHOW GRANTS FOR 'glance'@'localhost';"
+
 GLANCE_PASS=$(openssl rand -hex 10)
 echo "GLANCE_PASS=$GLANCE_PASS" >> ~/passwords.sh
+
+source ~/keystonerc_token
+source ~/passwords.sh
 keystone user-create --name glance --pass $GLANCE_PASS
 keystone user-role-add --user glance --role admin --tenant services
 keystone service-create --name glance --type image --description "Glance Image Service"
