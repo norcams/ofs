@@ -36,7 +36,7 @@ chkconfig openstack-keystone on
 
 source ~/keystonerc_token
 keystone service-create --name=keystone --type=identity --description="Keystone Identity Service"
-keystone endpoint-create --service_id $(keystone service-list | awk '/keystone/ { print $2 }') --publicurl 'http://172.16.188.11:5000/v2.0' --adminurl 'http://172.16.188.11:35357/v2.0' --internalurl 'http://172.16.188.11:5000/v2.0'
+keystone endpoint-create --service_id $(keystone service-list | awk '/keystone/ { print $2 }') --publicurl 'http://192.168.166.11:5000/v2.0' --adminurl 'http://172.16.188.11:35357/v2.0' --internalurl 'http://172.16.188.11:5000/v2.0'
 
 ADMIN_PASS=$(openssl rand -hex 10)
 echo "ADMIN_PASS=$ADMIN_PASS" >> ~/passwords.sh
