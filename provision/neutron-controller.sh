@@ -19,6 +19,6 @@ source ~/passwords.sh
 keystone user-create --name neutron --pass $NEUTRON_PASS
 keystone user-role-add --user neutron --role admin --tenant services
 keystone service-create --name neutron --type network --description "OpenStack Networking Service"
-keystone endpoint-create --service-id $(keystone service-list | awk '/neutron/ { print $2 }') --publicurl "http://192.168.166.12:9292" --adminurl "http://172.16.188.12:9292" --internalurl "http://172.16.199.12:9292"
+keystone endpoint-create --service-id $(keystone service-list | awk '/neutron/ { print $2 }') --publicurl "http://192.168.166.12:9696" --adminurl "http://172.16.188.12:9696" --internalurl "http://172.16.199.12:9696"
 
 
