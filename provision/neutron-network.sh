@@ -34,7 +34,7 @@ openstack-config --set /etc/neutron/plugin.ini \
   OVS tunnel_bridge br-tun
 
 openstack-config --set /etc/neutron/plugin.ini \
-  OVS local_ip 172.16.199.11
+  OVS local_ip 172.16.199.12
 
 openstack-config --set /etc/neutron/neutron.conf \
   DEFAULT core_plugin \
