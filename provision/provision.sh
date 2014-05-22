@@ -12,6 +12,7 @@ case $role in
     /vagrant/provision/qpid.sh
     /vagrant/provision/keystone.sh
     /vagrant/provision/glance.sh
+    cp ~/keystonerc_* ~/passwords.sh /vagrant/
     ;;
 esac
 
