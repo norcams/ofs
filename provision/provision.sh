@@ -12,7 +12,12 @@ case $role in
     /vagrant/provision/qpid.sh
     /vagrant/provision/keystone.sh
     /vagrant/provision/glance.sh
+    /vagrant/provision/neutron-controller.sh
+    # Share passwords via vagrant folder
     cp ~/keystonerc_* ~/passwords.sh /vagrant/
+    ;;
+  network)
+    /vagrant/provision/neutron-network.sh
     ;;
 esac
 
