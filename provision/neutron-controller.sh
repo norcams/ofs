@@ -21,4 +21,7 @@ keystone user-role-add --user neutron --role admin --tenant services
 keystone service-create --name neutron --type network --description "OpenStack Networking Service"
 keystone endpoint-create --service-id $(keystone service-list | awk '/neutron/ { print $2 }') --publicurl "http://192.168.166.12:9696" --adminurl "http://172.16.188.12:9696" --internalurl "http://172.16.199.12:9696"
 
+# Set innodb as default storage engine for mysql
+yum -y install augeas
+augtool set '/files/etc/my.cnf/target[. = "mysqld"]/default-storage-engine' innodb
 
