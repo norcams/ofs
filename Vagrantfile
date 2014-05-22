@@ -21,6 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     n2.vm.network :private_network, ip: "172.16.188.12", auto_config: true
     n2.vm.network :private_network, ip: "172.16.199.12", auto_config: true
     n2.vm.network :private_network, ip: "192.168.166.12", auto_config: true
+    n2.vm.network :private_network, ip: "192.168.177.12", auto_config: true
     n2.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--ioapic", "off"]
       vb.customize ["modifyvm", :id, "--cpus", 1]
