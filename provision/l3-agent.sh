@@ -23,3 +23,9 @@ openstack-config --set /etc/neutron/l3_agent.ini \
 openstack-config --set /etc/neutron/l3_agent.ini \
    DEFAULT external_network_bridge br-ex
 
+service neutron-l3-agent start
+chkconfig neutron-l3-agent on
+
+service neutron-metadata-agent start
+chkconfig neutron-metadata-agent on
+
