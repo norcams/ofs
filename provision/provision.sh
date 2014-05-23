@@ -18,6 +18,8 @@ case $role in
     ;;
   network)
     /vagrant/provision/neutron-network.sh
+    /vagrant/provision/openvswitch-network.sh
+    /vagrant/provision/l3-agent.sh
     ;;
 esac
 
