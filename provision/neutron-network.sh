@@ -1,12 +1,15 @@
 #!/bin/bash
 
-yum install -y openstack-neutron \
+yum install -y augeas openstack-neutron \
    openstack-neutron-openvswitch \
    openstack-utils \
    openstack-selinux
 
 iptables -A INPUT -p tcp -m multiport --dports 9696 -j ACCEPT
 iptables-save > /etc/sysconfig/iptables
+
+augtool set '/files/etc/sysctl.conf/net.ipv4.ip_forward' 1
+sysctl -p
 
 source /vagrant/passwords.sh
 openstack-config --set /etc/neutron/neutron.conf DEFAULT auth_strategy keystone
