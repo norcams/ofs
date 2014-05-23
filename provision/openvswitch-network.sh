@@ -26,3 +26,7 @@ service neutron-openvswitch-agent start
 chkconfig neutron-openvswitch-agent on
 chkconfig neutron-ovs-cleanup on
 
+ip addr del 192.168.177.12/24 dev eth4
+ovs-vsctl add-port br-ex eth4
+ip addr add 192.168.177.12/24 dev br-ex
+ 
