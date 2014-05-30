@@ -1,3 +1,2 @@
 #!/bin/bash
-yum install -y openstack-nova
-
+yum install -y openstack-nova-compute python-cinderclient
