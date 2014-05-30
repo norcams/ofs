@@ -44,6 +44,10 @@ openstack-config --set /etc/neutron/neutron.conf \
   neutron.plugins.openvswitch.ovs_neutron_plugin.OVSNeutronPluginV2
 
 openstack-config --set /etc/neutron/plugin.ini \
+  securitygroup firewall_driver \
+  neutron.agent.linux.iptables_firewall.OVSHybridIptablesFirewallDriver
+
+openstack-config --set /etc/neutron/plugin.ini \
    DATABASE sql_connection \
    mysql://neutron:$NEUTRON_DBPASS@172.16.188.11/ovs_neutron
 

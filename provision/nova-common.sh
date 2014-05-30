@@ -36,9 +36,3 @@ openstack-config --set /etc/nova/nova.conf \
 openstack-config --set /etc/nova/nova.conf \
     DEFAULT firewall_driver nova.virt.firewall.NoopFirewallDriver
 
-ln -sf /etc/neutron/plugins/openvswitch/ovs_neutron_plugin.ini \
-    /etc/neutron/plugin.ini
-openstack-config --set /etc/neutron/plugin.ini \
-    securitygroup firewall_driver \
-    neutron.agent.linux.iptables_firewall.OVSHybridIptablesFirewallDriver
-

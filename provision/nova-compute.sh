@@ -54,6 +54,11 @@ exit
 # Specify IP/network to be use for GRE out (eth0 on each compute node)
 /usr/bin/openstack-config --set /etc/neutron/plugin.ini OVS local_ip $(/sbin/ip addr show eth2|grep "inet " |/bin/awk '{ print ($2)}'|/bin/sed 's%/[^/]*$%%')
 
+# Set firewall_driver
+openstack-config --set /etc/neutron/plugin.ini \
+  securitygroup firewall_driver \
+  neutron.agent.linux.iptables_firewall.OVSHybridIptablesFirewallDriver
+
 # Set core plugin to OVS
 /usr/bin/openstack-config --set /etc/neutron/neutron.conf DEFAULT core_plugin neutron.plugins.openvswitch.ovs_neutron_plugin.OVSNeutronPluginV2
 
