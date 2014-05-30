@@ -13,6 +13,9 @@ case $role in
     /vagrant/provision/keystone.sh
     /vagrant/provision/glance.sh
     /vagrant/provision/neutron-controller.sh
+    /vagrant/provision/nova-controller.sh
+    /vagrant/provision/nova-common.sh
+    /vagrant/provision/nova-controller-startup.sh
     # Share passwords via vagrant folder
     cp ~/keystonerc_* ~/passwords.sh /vagrant/
     ;;
@@ -21,5 +24,9 @@ case $role in
     /vagrant/provision/openvswitch-network.sh
     /vagrant/provision/l3-agent.sh
     ;;
+  compute)
+    /vagrant/provision/nova-compute.sh
+    /vagrant/provision/nova-common.sh
+    /vagrant/provision/nova-compute-startup.sh
 esac
 
