@@ -33,6 +33,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     n3.vm.hostname = "compute.ofs.local"
     n3.vm.network :private_network, ip: "172.16.188.13", auto_config: true
     n3.vm.network :private_network, ip: "172.16.199.13", auto_config: true
+    n3.vm.network :private_network, ip: "192.168.166.13", auto_config: true
     n3.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--ioapic", "on"]
       vb.customize ["modifyvm", :id, "--cpus", 2]
