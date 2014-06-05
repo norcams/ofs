@@ -13,7 +13,7 @@ sysctl -e -p
 
 source /vagrant/passwords.sh
 openstack-config --set /etc/neutron/neutron.conf DEFAULT auth_strategy keystone
-openstack-config --set /etc/neutron/neutron.conf keystone_authtoken auth_host 172.16.188.11
+openstack-config --set /etc/neutron/neutron.conf keystone_authtoken auth_host 192.168.166.11
 openstack-config --set /etc/neutron/neutron.conf keystone_authtoken admin_tenant_name services
 openstack-config --set /etc/neutron/neutron.conf keystone_authtoken admin_user neutron
 openstack-config --set /etc/neutron/neutron.conf keystone_authtoken admin_password $NEUTRON_PASS
@@ -61,7 +61,7 @@ chkconfig neutron-server on
 
 source /vagrant/passwords.sh
 openstack-config --set /etc/neutron/dhcp_agent.ini DEFAULT auth_strategy keystone
-openstack-config --set /etc/neutron/dhcp_agent.ini keystone_authtoken auth_host 172.16.188.11
+openstack-config --set /etc/neutron/dhcp_agent.ini keystone_authtoken auth_host 192.168.166.11
 openstack-config --set /etc/neutron/dhcp_agent.ini keystone_authtoken admin_tenant_name services
 openstack-config --set /etc/neutron/dhcp_agent.ini keystone_authtoken admin_user neutron
 openstack-config --set /etc/neutron/dhcp_agent.ini keystone_authtoken admin_password $NEUTRON_PASS
