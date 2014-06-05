@@ -35,11 +35,11 @@ openstack-config --set /etc/neutron/plugin.ini \
 /usr/bin/openstack-config --set /etc/neutron/neutron.conf DEFAULT core_plugin neutron.plugins.openvswitch.ovs_neutron_plugin.OVSNeutronPluginV2
 
 # 
-openstack-config --set /etc/nova/nova.conf DEFAULT glance_host 172.16.188.11
- 
+openstack-config --set /etc/nova/nova.conf DEFAULT glance_host 192.168.166.11
+
 source /vagrant/passwords.sh
 openstack-config --set /etc/nova/nova.conf DEFAULT auth_strategy keystone
-openstack-config --set /etc/nova/api-paste.ini filter:authtoken auth_host 172.16.188.11
+openstack-config --set /etc/nova/api-paste.ini filter:authtoken auth_host 192.168.166.11
 openstack-config --set /etc/nova/api-paste.ini filter:authtoken admin_tenant_name services
 openstack-config --set /etc/nova/api-paste.ini filter:authtoken admin_user nova
 openstack-config --set /etc/nova/api-paste.ini filter:authtoken admin_password $NOVA_PASS
@@ -58,7 +58,7 @@ openstack-config --set /etc/nova/nova.conf \
 openstack-config --set /etc/nova/nova.conf \
      DEFAULT network_api_class nova.network.neutronv2.api.API
 openstack-config --set /etc/nova/nova.conf \
-     DEFAULT neutron_url http://172.16.188.11:9696/
+     DEFAULT neutron_url http://192.168.188.12:9696/
 openstack-config --set /etc/nova/nova.conf \
      DEFAULT neutron_admin_tenant_name services
 openstack-config --set /etc/nova/nova.conf \
@@ -66,7 +66,7 @@ openstack-config --set /etc/nova/nova.conf \
 openstack-config --set /etc/nova/nova.conf \
      DEFAULT neutron_admin_password $NEUTRON_PASS
 openstack-config --set /etc/nova/nova.conf \
-    DEFAULT neutron_admin_auth_url http://172.16..188.11:35357/v2.0
+    DEFAULT neutron_admin_auth_url http://172.16.188.12:35357/v2.0
 openstack-config --set /etc/nova/nova.conf \
     DEFAULT security_group_api neutron
 openstack-config --set /etc/nova/nova.conf \
@@ -79,5 +79,4 @@ chkconfig libvirtd on
 
 service openstack-nova-compute start
 chkconfig openstack-nova-compute on
-
 
