@@ -21,19 +21,19 @@ source ~/passwords.sh
 keystone user-create --name glance --pass $GLANCE_PASS
 keystone user-role-add --user glance --role admin --tenant services
 keystone service-create --name glance --type image --description "Glance Image Service"
-keystone endpoint-create --service-id $(keystone service-list | awk '/glance/ { print $2 }') --publicurl "http://192.168.166.11:9292" --adminurl "http://172.16.188.11:9292" --internalurl "http://172.16.188.11:9292"
+keystone endpoint-create --service-id $(keystone service-list | awk '/glance/ { print $2 }') --publicurl "http://192.168.166.11:9292" --internalurl "http://192.168.166.11:9292" --adminurl "http://172.16.188.11:9292" 
 
 openstack-config --set /etc/glance/glance-api.conf DEFAULT sql_connection mysql://glance:${GLANCE_DBPASS}@localhost/glance
 openstack-config --set /etc/glance/glance-registry.conf DEFAULT sql_connection mysql://glance:${GLANCE_DBPASS}@localhost/glance
 openstack-config --set /etc/glance/glance-api.conf paste_deploy flavor keystone
-openstack-config --set /etc/glance/glance-api.conf keystone_authtoken auth_host 172.16.188.11
+openstack-config --set /etc/glance/glance-api.conf keystone_authtoken auth_host 192.168.166.11
 openstack-config --set /etc/glance/glance-api.conf keystone_authtoken auth_port 5000
 openstack-config --set /etc/glance/glance-api.conf keystone_authtoken auth_protocol http
 openstack-config --set /etc/glance/glance-api.conf keystone_authtoken admin_tenant_name services
 openstack-config --set /etc/glance/glance-api.conf keystone_authtoken admin_user glance
 openstack-config --set /etc/glance/glance-api.conf keystone_authtoken admin_password $GLANCE_PASS
 openstack-config --set /etc/glance/glance-registry.conf paste_deploy flavor keystone
-openstack-config --set /etc/glance/glance-registry.conf keystone_authtoken auth_host 172.16.188.11
+openstack-config --set /etc/glance/glance-registry.conf keystone_authtoken auth_host 192.168.166.11
 openstack-config --set /etc/glance/glance-registry.conf keystone_authtoken auth_port 5000
 openstack-config --set /etc/glance/glance-registry.conf keystone_authtoken auth_protocol http
 openstack-config --set /etc/glance/glance-registry.conf keystone_authtoken admin_tenant_name services
