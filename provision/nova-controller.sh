@@ -47,7 +47,7 @@ openstack-config --set /etc/nova/nova.conf \
 openstack-config --set /etc/nova/nova.conf \
      DEFAULT network_api_class nova.network.neutronv2.api.API
 openstack-config --set /etc/nova/nova.conf \
-     DEFAULT neutron_url http://192.168.166.11:9696/
+     DEFAULT neutron_url http://192.168.166.12:9696/
 openstack-config --set /etc/nova/nova.conf \
      DEFAULT neutron_admin_tenant_name services
 openstack-config --set /etc/nova/nova.conf \
