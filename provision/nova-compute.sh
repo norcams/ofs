@@ -66,7 +66,7 @@ openstack-config --set /etc/nova/nova.conf \
 openstack-config --set /etc/nova/nova.conf \
      DEFAULT neutron_admin_password $NEUTRON_PASS
 openstack-config --set /etc/nova/nova.conf \
-    DEFAULT neutron_admin_auth_url http://172.16.188.12:35357/v2.0
+    DEFAULT neutron_admin_auth_url http://172.16.188.11:35357/v2.0
 openstack-config --set /etc/nova/nova.conf \
     DEFAULT security_group_api neutron
 openstack-config --set /etc/nova/nova.conf \
